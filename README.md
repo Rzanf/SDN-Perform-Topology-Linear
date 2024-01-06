@@ -75,3 +75,38 @@ sudo systemctl enable onos`
    `sudo update-alternatives --config karaf`
  - Run ODL
    `sudo -E karaf`
+# Quality of Service
+ ## Bandwidth:
+- Server (h1): iperf -s
+- Client (h2): iperf -c <IP_server> -t <duration> -b <bandwidth>
+- Replace <IP_server> with IP address h1.
+- Replace <duration> with the measurement duration (for example, 10 seconds).
+- Replace <bandwidth> with the desired bandwidth (for example, 1M for 1 Mbps).
+
+ ## Throughput:
+- Server (h1): iperf -s
+- Client (h3): iperf -c <IP_server> -t <duration>
+- Replace <IP_server> with IP address h1.
+- Replace <duration> with the measurement duration (for example, 10 seconds).
+
+## Packet Loss:
+- Server (h1): iperf -s
+- Client (h4): iperf -c <IP_server> -t <duration> -l <packet_size>
+- Replace <IP_server> with IP address h1.
+- Replace <duration> with the measurement duration (for example, 10 seconds).
+- Replace <packet_size> with the desired package size.
+
+## Latency:
+- Server (h1): iperf -s
+- Client (h5): iperf -c <IP_server> -t <duration> -i <interval>
+- Replace <IP_server> with IP address h1.
+- Replace <duration> with the measurement duration (for example, 10 seconds).
+- Replace <interval> with the measurement interval (for example, 1 second).
+
+## Jitter:
+- Server (h1): iperf -s -u
+- Client (h6): iperf -c <IP_server> -t <duration> -i <interval> -u -b <bandwidth>
+- Replace <IP_server> with IP address h1.
+- Replace <duration> with the measurement duration (for example, 10 seconds).
+- Replace <interval> with the measurement interval (for example, 1 second).
+- Replace <bandwidth> with the desired bandwidth for jitter measurement.
